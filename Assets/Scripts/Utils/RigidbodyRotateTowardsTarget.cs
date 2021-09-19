@@ -9,10 +9,13 @@ public class RigidbodyRotateTowardsTarget : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 targetDirection = _target.position - _rigidbody.position;
-        Quaternion toRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
-        Quaternion nextRotation = Quaternion.RotateTowards(_rigidbody.rotation, toRotation, _maxDegreesDelta);
+        if (targetDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+            Quaternion nextRotation = Quaternion.RotateTowards(_rigidbody.rotation, toRotation, _maxDegreesDelta);
 
-        _rigidbody.MoveRotation(nextRotation);
+            _rigidbody.MoveRotation(nextRotation);
+        }
 
     }
 }

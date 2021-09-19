@@ -1,11 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum CreepType 
+{ 
+    Small, 
+    Big 
+}
 
 public class CreepSpawner : MonoBehaviour
 {
-    private enum CreepType { Small, Big }
-
     [System.Serializable]
     private class CreepTypeToPool : SerializableDictionary<CreepType, PrototypePool> { }
 
@@ -35,7 +38,7 @@ public class CreepSpawner : MonoBehaviour
                 SpawnPoint spawnPoint = spawnPoints[index];
                 Transform spawnPointTransform = _spawnPointToTransform[spawnPoint];
 
-                pool.Spawn(spawnPointTransform.position, Quaternion.identity);
+                pool.Spawn(spawnPointTransform.position);
 
                 yield return new WaitForSeconds(1f);
             }
