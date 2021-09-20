@@ -32,6 +32,16 @@ public class PrototypePool
         _pooledInstances.Clear();
     }
 
+    public GameObject Spawn()
+    {
+        return Spawn(Vector3.zero, Quaternion.identity);
+    }
+
+    public GameObject Spawn(Vector3 position)
+    {
+        return Spawn(position, Quaternion.identity);
+    }
+
     public GameObject Spawn(Vector3 position, Quaternion rotation)
     {
         if (_pooledInstances.Count > 0)

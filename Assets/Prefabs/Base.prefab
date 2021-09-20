@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1109364066129260648}
   - component: {fileID: 7862379436342573650}
   - component: {fileID: 8481750027909529314}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3563692720844785907}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 022f6a691c7df2f4e93ee1b51631ec8f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -121,6 +121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBarUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710561198869571859, guid: 7d0cabea13f2aef4f966ca6e9b3de245,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2710561198869571871, guid: 7d0cabea13f2aef4f966ca6e9b3de245,
         type: 3}
@@ -226,6 +231,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710561199053378411, guid: 7d0cabea13f2aef4f966ca6e9b3de245,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710561199394117113, guid: 7d0cabea13f2aef4f966ca6e9b3de245,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8145194715630617293, guid: 7d0cabea13f2aef4f966ca6e9b3de245,
         type: 3}
