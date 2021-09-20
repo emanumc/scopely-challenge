@@ -33,8 +33,6 @@ public class Turret : MonoBehaviour
         }
     }
 
-    
-
     private Health FindClosestEnemy()
     {
         // find closest enemy

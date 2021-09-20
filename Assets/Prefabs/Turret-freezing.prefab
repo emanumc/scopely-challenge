@@ -49,7 +49,7 @@ MonoBehaviour:
   _creepSpawner: {fileID: 0}
   _bulletOrigin: {fileID: 661587407346025681}
   _bulletSpawner: {fileID: 0}
-  _shotsPerSecond: 3
+  _shotsPerSecond: 1
 --- !u!1 &3331154649744156603
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3880759972373931690
 MonoBehaviour:
