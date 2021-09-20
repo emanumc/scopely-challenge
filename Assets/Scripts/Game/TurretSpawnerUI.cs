@@ -20,25 +20,23 @@ public class TurretSpawnerUI : MonoBehaviour
 
     public void MovePreview(TurretType turretType, GameObject turretPreview, int price)
     {
-        if (_turretOffer == null)
-        {
-            _turretOffer = new TurretOffer()
-            {
-                type = turretType,
-                price = price,
-                gameObject = turretPreview
-            };
-
-            var e = MovePreviewCoroutine();
-            _movePreviewCoroutine = StartCoroutine(e);
-        }
-        else
+        if (_movePreviewCoroutine != null)
         {
             StopCoroutine(_movePreviewCoroutine);
             _movePreviewCoroutine = null;
 
             HidePreview();
         }
+
+        _turretOffer = new TurretOffer()
+        {
+            type = turretType,
+            price = price,
+            gameObject = turretPreview
+        };
+
+        var e = MovePreviewCoroutine();
+        _movePreviewCoroutine = StartCoroutine(e);
     }
 
     private IEnumerator MovePreviewCoroutine()
