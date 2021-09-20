@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private float _enemySpeed;
     [SerializeField] private BulletSpawner _bulletSpawner;
     [SerializeField, Min(1)] private int _shotsPerSecond;
+    [SerializeField] private SphereCollider _attackCollider;
+    [SerializeField, Min(0)] private float _attackRadius;
 
     private float _timeSinceLastShot = 0f;
     private Health _closestEnemy;
@@ -15,6 +17,8 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        _attackCollider.radius = _attackRadius;
+
         float fireRate = 1f / _shotsPerSecond;
         if (Time.realtimeSinceStartup - _timeSinceLastShot > fireRate)
         {

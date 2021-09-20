@@ -196,4 +196,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawner: {fileID: 0}
   _value: 0.5
+  _damage: 1
   _duration: 1

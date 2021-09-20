@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5ce38191fd1974cb407004f9eab570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startValue: 100
+  _startValue: 10
 --- !u!4 &1018922018
 Transform:
   m_ObjectHideFlags: 0

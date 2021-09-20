@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941ca4af3793aa347ab9a170e1e58e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 2
   _bulletSpawner: {fileID: 0}
 --- !u!114 &9045626547037804226
 MonoBehaviour:
