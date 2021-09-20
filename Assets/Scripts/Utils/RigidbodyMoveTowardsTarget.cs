@@ -11,7 +11,8 @@ public class RigidbodyMoveTowardsTarget : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 nextPosition = Vector3.SmoothDamp(_rigidBody.position, _target.position, ref _velocity, _smoothTime, _maxSpeed);
+        Vector3 targetPosition = _target != null ? _target.position : _rigidBody.position;
+        Vector3 nextPosition = Vector3.SmoothDamp(_rigidBody.position, targetPosition, ref _velocity, _smoothTime, _maxSpeed);
 
         _rigidBody.MovePosition(nextPosition);
     }
