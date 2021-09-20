@@ -9,15 +9,15 @@ public class FreezingBullet : MonoBehaviour
 
     public void ApplyEffect(GameObject go)
     {
-        SlowDownEffect effect = go.GetComponentInParent<SlowDownEffect>();
+        SlowDownEffect effect = go.GetComponent<SlowDownEffect>();
         if (effect == null)
         {
-            effect = go.AddComponentInParent<SlowDownEffect>();
+            effect = go.AddComponent<SlowDownEffect>();
             effect.Value = _value;
             effect.Duration = _duration;
         }
 
-        Health health = go.GetComponentInParent<Health>();
+        Health health = go.GetComponent<Health>();
         if (health != null)
         {
             health.ApplyDamage(_damage);

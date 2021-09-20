@@ -14,6 +14,8 @@ public class RigidbodyRotateTowardsTarget : MonoBehaviour
 
         if (targetDirection != Vector3.zero)
         {
+            _rigidbody.angularVelocity = Vector3.zero;
+
             Quaternion toRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
             Quaternion nextRotation = Quaternion.RotateTowards(_rigidbody.rotation, toRotation, _maxDegreesDelta);
 

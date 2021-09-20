@@ -83,7 +83,7 @@ public class CreepSpawner : MonoBehaviour
         for (int i = 0; i < creepSpawn.numSpawns; i++)
         {
             GameObject enemy = pool.Spawn(spawnPointPosition);
-            Health enemyHealth = enemy.GetComponentInParent<Health>();
+            Health enemyHealth = enemy.GetComponent<Health>();
             enemyHealth.Restore(enemyHealth.MaxValue);
 
             Enemies.Add((creepType, enemyHealth));

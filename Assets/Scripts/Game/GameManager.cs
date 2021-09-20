@@ -29,10 +29,12 @@ public class GameManager : MonoBehaviour
         if (_baseHealth.Value <= 0)
         {
             _losePopup.SetActive(true);
+            Time.timeScale = 0f;
         }
         else
         {
             _winPopup.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }
