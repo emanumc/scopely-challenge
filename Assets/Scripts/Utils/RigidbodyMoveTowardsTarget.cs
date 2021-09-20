@@ -13,6 +13,8 @@ public class RigidbodyMoveTowardsTarget : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _rigidBody.velocity = Vector3.zero;
+
         Vector3 targetPosition = _target != null ? _target.position : _rigidBody.position;
         Vector3 nextPosition = Vector3.SmoothDamp(_rigidBody.position, targetPosition, ref _velocity, _smoothTime, MaxSpeed);
 

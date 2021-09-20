@@ -13,8 +13,8 @@ public class SlowDownEffect : MonoBehaviour
 
     private void Start()
     {
-        _targetMovement = GetComponentInParent<RigidbodyMoveTowardsTarget>();
-        _targetHealth = GetComponentInParent<Health>();
+        _targetMovement = GetComponent<RigidbodyMoveTowardsTarget>();
+        _targetHealth = GetComponent<Health>();
 
         StartCoroutine(Apply());
     }

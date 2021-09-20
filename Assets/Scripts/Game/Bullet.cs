@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     public void ApplyDamageToGameObject(GameObject go)
     {
-        Health health = go.GetComponentInParent<Health>();
+        Health health = go.GetComponent<Health>();
         if (health != null)
         {
             health.ApplyDamage(_damage);

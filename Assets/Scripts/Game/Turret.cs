@@ -5,7 +5,6 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] private CreepSpawner _creepSpawner;
     [SerializeField] private Transform _bulletOrigin;
-    [SerializeField] private float _enemySpeed;
     [SerializeField] private BulletSpawner _bulletSpawner;
     [SerializeField, Min(1)] private int _shotsPerSecond;
     [SerializeField] private SphereCollider _attackCollider;
@@ -32,8 +31,7 @@ public class Turret : MonoBehaviour
             // shoot
             if (_closestEnemy != null)
             {
-                Vector3 enemyNextPosition = _closestEnemy.transform.position + _closestEnemy.transform.forward * _enemySpeed;
-                Vector3 direction = enemyNextPosition - transform.position;
+                Vector3 direction = _closestEnemy.transform.position - transform.position;
                 _bulletSpawner.Shoot(_bulletOrigin.position, direction);
             }
         }
@@ -68,7 +66,7 @@ public class Turret : MonoBehaviour
 
     public void OnEnemyEnterAttackRadius(GameObject gameObject)
     {
-        Health healthEnemy = gameObject.GetComponentInParent<Health>();
+        Health healthEnemy = gameObject.GetComponent<Health>();
         if (healthEnemy != null)
         {
             _closeEnemies.Add(healthEnemy);
@@ -79,7 +77,7 @@ public class Turret : MonoBehaviour
 
     public void OnEnemyExitAttackRadius(GameObject gameObject)
     {
-        Health healthEnemy = gameObject.GetComponentInParent<Health>();
+        Health healthEnemy = gameObject.GetComponent<Health>();
         if (healthEnemy != null)
         {
             _closeEnemies.Remove(healthEnemy);
