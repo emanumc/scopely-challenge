@@ -354,7 +354,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _rigidBody: {fileID: -6094798638945821417}
   _smoothTime: 0.3
-  _maxSpeed: 4
+  _maxSpeed: 3
 --- !u!114 &472227036603229567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd2eb634f24e594a8a2f09d69b998b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 3
+  _maxValue: 10
 --- !u!114 &2694518964557495195
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1355,6 +1355,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &863825097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767247216979472048, guid: fdaa60ba925ea4ad78e77997673c4c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1715271587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &896869051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,6 +2198,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 8481750027909529314, guid: 458d7fbe6b08d464f9bbc0ea868876a4,
+        type: 3}
+      propertyPath: _maxValue
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458d7fbe6b08d464f9bbc0ea868876a4, type: 3}
 --- !u!4 &1233108154 stripped
@@ -2809,8 +2820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a3cb61f25c7ea41b01757462db30ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _winPopup: {fileID: 863825097}
   _losePopup: {fileID: 841525313}
   _baseHealth: {fileID: 229000327}
+  _creepSpawner: {fileID: 49298975}
 --- !u!1001 &1715271587
 PrefabInstance:
   m_ObjectHideFlags: 0

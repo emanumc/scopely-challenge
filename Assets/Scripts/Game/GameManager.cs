@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _winPopup;
     [SerializeField] private GameObject _losePopup;
     [SerializeField] private Health _baseHealth;
+    [SerializeField] private CreepSpawner _creepSpawner;
 
     private void Start()
     {
@@ -17,7 +19,10 @@ public class GameManager : MonoBehaviour
         bool isGameRunning = true;
         while (isGameRunning)
         {
-            isGameRunning = _baseHealth.Value > 0;
+            bool enemiesAreAlive = !_creepSpawner.FinishSpawning || 
+                _creepSpawner.Enemies.Count > 0;
+
+            isGameRunning = _baseHealth.Value > 0 && enemiesAreAlive;
             yield return null;
         }
 
@@ -25,6 +30,10 @@ public class GameManager : MonoBehaviour
         if (_baseHealth.Value <= 0)
         {
             _losePopup.SetActive(true);
+        }
+        else
+        {
+            _winPopup.SetActive(true);
         }
     }
 }

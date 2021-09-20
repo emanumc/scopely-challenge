@@ -24,8 +24,12 @@ public class CreepSpawner : MonoBehaviour
 
     public List<(CreepType, Health)> Enemies { get; private set; } = new List<(CreepType, Health)>();
 
+    public bool FinishSpawning { get; private set; }
+
     private void Start()
     {
+        FinishSpawning = false;
+
         foreach (var pool in _creepTypeToPool.Values)
         {
             pool.CreatePool();
@@ -57,11 +61,13 @@ public class CreepSpawner : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
         }
+
+        FinishSpawning = true;
     }
 
     private IEnumerator ManageEnemies()
     {
-        while (true)
+        while (!FinishSpawning || Enemies.Count > 0)
         {
             for (int i = Enemies.Count - 1; i >= 0; i--)
             {
