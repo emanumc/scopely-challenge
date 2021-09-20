@@ -54,7 +54,7 @@ public class PrototypePool
         }
         else
         {
-            GameObject pooledInstance = Object.Instantiate(_prototype);
+            GameObject pooledInstance = Object.Instantiate(_prototype, _parent);
             pooledInstance.SetActive(true);
             pooledInstance.transform.position = position;
             pooledInstance.transform.rotation = rotation;
