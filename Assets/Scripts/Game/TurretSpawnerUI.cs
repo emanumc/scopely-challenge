@@ -1,21 +1,35 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class TurretSpawnerUI : MonoBehaviour
 {
+    private class TurretOffer
+    {
+        public TurretType type;
+        public int price;
+        public GameObject gameObject;
+        public Vector3? position;
+    }
+
     [SerializeField] private TurretSpawner _turretSpawner;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private LayerMask _allowedLayers;
 
-    private GameObject _turretPreview;
+    private TurretOffer _turretOffer;
     private Coroutine _movePreviewCoroutine;
 
     public void MovePreview(TurretType turretType, GameObject turretPreview, int price)
     {
-        if (_turretPreview == null)
+        if (_turretOffer == null)
         {
-            var e = MovePreviewCoroutine(turretType, turretPreview, price);
+            _turretOffer = new TurretOffer()
+            {
+                type = turretType,
+                price = price,
+                gameObject = turretPreview
+            };
+
+            var e = MovePreviewCoroutine();
             _movePreviewCoroutine = StartCoroutine(e);
         }
         else
@@ -27,51 +41,53 @@ public class TurretSpawnerUI : MonoBehaviour
         }
     }
 
-    private IEnumerator MovePreviewCoroutine(TurretType turretType, GameObject turretPreview, int price)
+    private IEnumerator MovePreviewCoroutine()
     {
-        _turretPreview = turretPreview;
-        _turretPreview.SetActive(true);
+        var preview = _turretOffer.gameObject;
+        preview.SetActive(true);
 
-        while (_turretPreview.activeSelf)
+        while (preview.activeSelf)
         {
-            // Get mouse position over terrain
-            Vector3? previewPos = GetPreviewPosition();
-            if (previewPos.HasValue)
+            _turretOffer.position = GetPreviewPosition();
+            if (_turretOffer.position.HasValue)
             {
-                _turretPreview.transform.position = previewPos.Value;
+                preview.transform.position = _turretOffer.position.Value;
             }
-
-            // On Mouse Click
-            if (Input.GetMouseButtonDown(0) &&
-                _wallet.CanSubtract(price) &&
-                previewPos.HasValue)
-            {
-                _turretSpawner.PlaceTurret(turretType, previewPos.Value);
-                _wallet.Subtract(price);
-                break;
-            }
-
             yield return null;
         }
 
         _movePreviewCoroutine = null;
+    }
 
-        HidePreview();
+    public void PlaceTurret()
+    {
+        if (_turretOffer != null)
+        {
+            int price = _turretOffer.price;
+            Vector3? position = _turretOffer.position;
+            TurretType turretType = _turretOffer.type;
+
+            if (_wallet.CanSubtract(price) && position.HasValue)
+            {
+                _turretSpawner.PlaceTurret(turretType, position.Value);
+                _wallet.Subtract(price);
+
+                HidePreview();
+            }
+        }
     }
 
     private void HidePreview()
     {
-        _turretPreview.SetActive(false);
-        _turretPreview = null;
+        if (_turretOffer != null)
+        {
+            _turretOffer.gameObject.SetActive(false);
+            _turretOffer = null;
+        }
     }
 
     public Vector3? GetPreviewPosition()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return null;
-        }
-
         Vector3? previewPosition = null;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray);

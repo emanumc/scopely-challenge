@@ -1,26 +1,29 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class CollisionEvent
-{
-    public LayerMask layerMask;
-    public UnityEvent<GameObject> unityEvent;
-}
-
 public class OnCollisionEventTrigger : MonoBehaviour
 {
-    [SerializeField] private CollisionEvent _onCollisionEnter;
-    [SerializeField] private CollisionEvent _onCollisionStay;
-    [SerializeField] private CollisionEvent _onCollisionExit;
+    [System.Serializable]
+    private class CollisionEvent
+    {
+        public LayerMask layerMask;
+        public UnityEvent<GameObject> unityEvent;
+    }
+
+    [SerializeField] private CollisionEvent[] _onCollisionsEnter;
+    [SerializeField] private CollisionEvent[] _onCollisionsStay;
+    [SerializeField] private CollisionEvent[] _onCollisionsExit;
 
     private void OnCollisionEnter(Collision collision)
     {
         GameObject go = collision.gameObject;
 
-        if (_onCollisionEnter.layerMask.Contains(go.layer))
+        foreach (CollisionEvent onCollisionEnter in _onCollisionsEnter)
         {
-            _onCollisionEnter.unityEvent.Invoke(go);
+            if (onCollisionEnter.layerMask.Contains(go.layer))
+            {
+                onCollisionEnter.unityEvent.Invoke(go);
+            }
         }
     }
 
@@ -28,9 +31,12 @@ public class OnCollisionEventTrigger : MonoBehaviour
     {
         GameObject go = collision.gameObject;
 
-        if (_onCollisionStay.layerMask.Contains(go.layer))
+        foreach (CollisionEvent onCollisionStay in _onCollisionsStay)
         {
-            _onCollisionStay.unityEvent.Invoke(go);
+            if (onCollisionStay.layerMask.Contains(go.layer))
+            {
+                onCollisionStay.unityEvent.Invoke(go);
+            }
         }
     }
 
@@ -38,9 +44,12 @@ public class OnCollisionEventTrigger : MonoBehaviour
     {
         GameObject go = collision.gameObject;
 
-        if (_onCollisionExit.layerMask.Contains(go.layer))
+        foreach (CollisionEvent onCollisionExit in _onCollisionsExit)
         {
-            _onCollisionExit.unityEvent.Invoke(go);
+            if (onCollisionExit.layerMask.Contains(go.layer))
+            {
+                onCollisionExit.unityEvent.Invoke(go);
+            }
         }
     }
    

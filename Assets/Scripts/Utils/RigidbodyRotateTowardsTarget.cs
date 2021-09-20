@@ -6,9 +6,12 @@ public class RigidbodyRotateTowardsTarget : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _maxDegreesDelta = 0.5f;
 
+    public Transform Target { get => _target; set => _target = value; }
+
     private void FixedUpdate()
     {
-        Vector3 targetDirection = _target.position - _rigidbody.position;
+        Vector3 targetDirection = Target != null ? Target.position - _rigidbody.position : transform.forward;
+
         if (targetDirection != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
@@ -16,6 +19,5 @@ public class RigidbodyRotateTowardsTarget : MonoBehaviour
 
             _rigidbody.MoveRotation(nextRotation);
         }
-
     }
 }
