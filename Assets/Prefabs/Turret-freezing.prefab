@@ -48,9 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _creepSpawner: {fileID: 0}
   _bulletOrigin: {fileID: 661587407346025681}
-  _enemySpeed: 1.5
+  _enemySpeed: 0.5
   _bulletSpawner: {fileID: 0}
   _shotsPerSecond: 1
+  _attackCollider: {fileID: 1269929345922833862}
+  _attackRadius: 10
 --- !u!1 &3331154649744156603
 GameObject:
   m_ObjectHideFlags: 0
