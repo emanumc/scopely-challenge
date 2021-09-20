@@ -7,4 +7,4 @@
 5. ~~Implement a simple economy such as making each turret cost 5 coins to build and each creep giving you a coin when it dies.~~
 6. Implement two types of turrets with different capabilities: a regular one and a freeze/slow-down effect on the other. (You have both assets provided).
 7. ~~Add different types of creeps with varying attributes such as speed and hit points. (You have two different creep assets provided).~~
-8. Implement a system of waves. Once all the creeps of a particular wave are cleared, the next wave starts. If all the waves are cleared and the base is still alive, then display the WinPopup .
+8. ~~Implement a system of waves. Once all the creeps of a particular wave are cleared, the next wave starts. If all the waves are cleared and the base is still alive, then display the WinPopup.~~
