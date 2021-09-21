@@ -36,6 +36,45 @@ After that, you need to create a preview [Figure 6], a transparent object that w
 ![PreviewAfter](./Documentation/preview-after-spawning.png)<br>
 **Figure 8:** Preview After Spawning
 
+If your turret needs a specific type of Bullet [Figure 9], you can create one from scratch, as long as there is a BulletSpawner to create it in the scene. All Bullets must have a MoveDirection and a script that extends from AbstractBullet. AbstractBullet has a method called ApplyEffect which will define what is going to happen, besides damaging, when it collides with a Creep.
+
+![Bullet](./Documentation/bullet.png)<br>
+**Figure 9:** All scripts of a Bullet.
+
+## Wallet
+
+Wallet is the MonoBehaviour that stores the amount of coins necessary to buy new turrets. You get more coins if you destroy enemies. There is also a WalletUI [Figure 10] script that takes both a Wallet and TM_Text component to show these coins.
+
+![Wallet](./Documentation/coins.png)<br>
+**Figure 10:** WalletUI
+
 ## Creeps
 
-## Projectiles
+Creeps are the enemies of our game. In this game I added two different enemies: small and big. Small Creeps[Figure 11] walks toward the base at a medium pace and have 10 units of health. On reaching the base, this enemy deals 1 units of damage per Fixed Update. When this enemy dies, 1 coin is added to the wallet.
+
+![Wallet](./Documentation/creep-small.png)<br>
+**Figure 11:** Small Creep Inspector
+
+Big Creeps walks toward the base at a slower pace than Smalls and have 15 units of health. On reaching the base, this enemy deals 2 units of damage per Fixed Update. When this enemy dies, 1 coin is added to the wallet.
+
+![Wallet](./Documentation/creep-big.png)<br>
+**Figure 12:** Big Creep Inspector
+
+It is possible to create new type of creeps, as long as you add a new enum value to CreepType, create a new creep prototype, similar to the ones already added to the project and include it in the CreepSpawner [Figure 13].
+
+![Wallet](./Documentation/creep-spawner.png)<br>
+**Figure 13:** Creep Spawner
+
+## Waves
+
+Besides creating a new type of creep, you must also add it to one of the Waves already present in the game. Right now, the game has 3 enemy waves: you can define, for each of the four spawn points (Northwest, Northeast, Southwest and Southeast), a Creep Type that will be spawned X times in a interval of Y seconds [Figure 14]. It is necessary to include the Wave in the CreepSpawner [Figure 13].
+
+![GameManager](./Documentation/waves.png)<br>
+**Figure 14:** A Wave Scriptable Object
+
+## GameManager
+
+The GameManager checks the Base's Health and the enemies spawned to check if the win and lose conditions are satisfied. A game is won if, after all enemies are destroyed, the Base's health is higher than zero. However, if the base health goes to zero, the game is lost [Figure 15].
+
+![GameManager](./Documentation/game-manager.png)<br>
+**Figure 15:** GameManager

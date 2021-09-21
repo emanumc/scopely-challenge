@@ -354,13 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c665a956a86f764468326c9a59efea6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onCollisionsEnter:
-  - layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
+  _onCollisionsEnter: []
   _onCollisionsStay:
   - layerMask:
       serializedVersion: 2

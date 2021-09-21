@@ -916,8 +916,8 @@ GameObject:
   m_Component:
   - component: {fileID: 593150049}
   - component: {fileID: 593150051}
-  - component: {fileID: 593150050}
   - component: {fileID: 593150052}
+  - component: {fileID: 593150050}
   m_Layer: 5
   m_Name: Coins Text (TMP)
   m_TagString: Untagged

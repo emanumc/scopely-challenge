@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class FreezingBullet : MonoBehaviour
+public class FreezingBullet : AbstractBullet
 {
-    [SerializeField] private BulletSpawner _bulletSpawner;
     [SerializeField, Range(0f, 1f)] private float _value;
-    [SerializeField, Min(0f)] private int _damage;
     [SerializeField, Min(0f)] private float _duration;
 
-    public void ApplyEffect(GameObject go)
+    public override void ApplyEffect(GameObject go)
     {
         SlowDownEffect effect = go.GetComponent<SlowDownEffect>();
         if (effect == null)
@@ -22,10 +20,5 @@ public class FreezingBullet : MonoBehaviour
         {
             health.ApplyDamage(_damage);
         }
-    }
-
-    public void DespawnBullet()
-    {
-        _bulletSpawner.DespawnBullet(gameObject);
     }
 }

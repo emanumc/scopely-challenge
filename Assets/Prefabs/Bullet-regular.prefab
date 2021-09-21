@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7891121439669132841}
   - component: {fileID: 9045626547037804226}
   m_Layer: 13
-  m_Name: Projectile
+  m_Name: Bullet-regular
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: -7891121439669132841}
           m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
-          m_MethodName: ApplyDamageToGameObject
+          m_MethodName: ApplyEffect
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
