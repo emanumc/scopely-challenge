@@ -36,6 +36,11 @@ After that, you need to create a preview [Figure 6], a transparent object that w
 ![PreviewAfter](./Documentation/preview-after-spawning.png)<br>
 **Figure 8:** Preview After Spawning
 
-## Creeps
+## Bullets
 
-## Projectiles
+If your turret needs a specific type of Bullet [Figure 9], you can create one from scratch, as long as there is a BulletSpawner to create it in the scene. All Bullets must have a MoveDirection and a script that extends from AbstractBullet. AbstractBullet has a method called ApplyEffect which will define what is going to happen when it collides with a Creep.
+
+![Bullet](./Documentation/bullet.png)<br>
+**Figure 9:** All scripts of a Bullet.
+
+## Creeps
