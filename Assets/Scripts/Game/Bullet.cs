@@ -1,21 +1,13 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : AbstractBullet
 {
-    [SerializeField, Min(1)] private int _damage;
-    [SerializeField] private BulletSpawner _bulletSpawner;
-
-    public void ApplyDamageToGameObject(GameObject go)
+    public override void ApplyEffect(GameObject go)
     {
         Health health = go.GetComponent<Health>();
         if (health != null)
         {
             health.ApplyDamage(_damage);
         }
-    }
-
-    public void DespawnBullet()
-    {
-        _bulletSpawner.DespawnBullet(gameObject);
     }
 }
