@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [SerializeField] private CreepSpawner _creepSpawner;
     [SerializeField] private Transform _bulletOrigin;
     [SerializeField] private BulletSpawner _bulletSpawner;
     [SerializeField, Min(1)] private int _shotsPerSecond;
